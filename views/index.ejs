@@ -209,7 +209,7 @@
                         <div class="row Range">
 
                             <div class="row">
-                                <% for(let i = 0; i < result.length; i++){ %>
+                                <% for(let i = 0; i < (result.length <= 8 ? result.length : 8 ); i++){ %>
                                     <div class="col-md-3 ">
                                         <iframe width="560 " height="315 " src="<%= result[i].link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         <div class="content">
@@ -237,7 +237,7 @@
                         <div class="row Range">
 
                             <div class="row">
-                                <% for(let i = 0; i < result.length; i++){ %>
+                                <% for(let i = 0; i < (result.length <= 8 ? result.length : 8) ; i++){ %>
                                     <div class="col-md-3 ">
                                         <iframe width="560 " height="315 " src="<%= result[i].link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                         <div class="content">

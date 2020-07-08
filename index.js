@@ -27,22 +27,40 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", "ejs")
 
 
-app.get('/about', function(req, res) {
-    var sql = "SELECT * from video";
-    con.query(sql, function(err, results) {
-        if (err) throw err;
-        res.send(results);
-    });
-});
+// app.get('/about', function(req, res) {
+//     var sql = "SELECT * from video";
+//     con.query(sql, function(err, results) {
+//         if (err) throw err;
+//         res.send(results);
+//     });
+// });
 
 
 app.get("/", function(req, res) {
-    var sql = "SELECT * from video";
+    var sql = "SELECT * FROM video  where hot = 0  ORDER BY id DESC";
     con.query(sql, function(err, results) {
         if (err) throw err;
-        res.render("index.ejs", { result: results })
-        console.log(results)
+        res.render("index.ejs", { result: results });
+        // var obj = JSON.parse(results);
+        console.log(results);
     });
+
+    var sql = "SELECT * FROM video  where hot = 1  ORDER BY id DESC";
+    con.query(sql, function(err, results) {
+        if (err) throw err;
+        res.render("index.ejs", { result: results });
+        // var obj = JSON.parse(results);
+        console.log(results);
+    });
+
+    var sql = "SELECT * FROM video  where hot = 2  ORDER BY id DESC";
+    con.query(sql, function(err, results) {
+        if (err) throw err;
+        res.render("index.ejs", { result: results });
+        // var obj = JSON.parse(results);
+        console.log(results);
+    });
+
 
 })
 
