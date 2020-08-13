@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sach todo</title>
+    <title>YouTube</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/ytb.css">
+    <link rel="icon" type="" href="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" sizes="32x32">
 </head>
 
 <body>
@@ -30,6 +31,11 @@
                 <img src="/icon/icon-3.png" alt="icon">
                 <img src="/icon/icon-6.png" alt="icon">
                 <img src="https://yt3.ggpht.com/a-/AOh14GiFEZuatzvm7rs3a5Ch22e-34r6qjeLxPIi774o=s88-c-k-c0xffffffff-no-rj-mo" alt="icon" style="border-radius: 50%;">
+                <div class="settings">
+                    <a href="/setting.html">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRRdPGx_ktrKYxbhPqrg37h635m81bu-aRhZA&usqp=CAU" alt="setting">
+                    </a>
+                </div>
                 <div class="avatar"></div>
             </div>
         </header>
@@ -177,34 +183,7 @@
             <div class="main-content">
                 <div class="section-offer">
                     <div class="container">
-                        <form action="/new-todo" method="POST">
-                            <input type="text" name="link">
-                            <input type="text" name="img">
-                            <input type="text" name="title">
-                            <input type="text" name="channel">
-                            <input type="text" name="view">
-                            <button type=" submit ">Thêm Video</button>
-                        </form>
 
-                        <form action="/delete-todo" method="POST">
-                            <input type="text" name="id">
-                            <button type="submit">Xóa Video</button>
-                        </form>
-
-                        <form action="/fix-todo" method="POST">
-                            <input type="number" name="id">
-                            <input type="text" name="link">
-                            <input type="text" name="newlink">
-                            <input type="text" name="img">
-                            <input type="text" name="newimg">
-                            <input type="text" name="title">
-                            <input type="text" name="newtitle">
-                            <input type="text" name="channel">
-                            <input type="text" name="newchannel">
-                            <input type="text" name="view">
-                            <input type="text" name="newview">
-                            <button type="submit">Fix</button>
-                        </form>
                         <h1>Đề xuất</h1>
                         <div class="row Range">
 
@@ -233,29 +212,31 @@
 
 
                         <hr class="space" style="width:100%; margin-bottom: 20px;">
-
+                        <h1>Hot Video</h1>
                         <div class="row Range">
 
                             <div class="row">
-                                <% for(let i = 0; i < (result.length <= 8 ? result.length : 8) ; i++){ %>
-                                    <div class="col-md-3 ">
-                                        <iframe width="560 " height="315 " src="<%= result[i].link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        <div class="content">
-                                            <div class="icon-avatar">
-                                                <img src="<%= result[i].img %>" alt="avatar">
-                                            </div>
-                                            <div class="text">
-                                                <h2>
-                                                    <%= result[i].title %>
-                                                </h2>
-                                                <span class="verified"><%= result[i].channel %></span><br>
-                                                <span><%= result[i].view %></span>
+
+                                <% for(let i = 0; i < result.length ; i++){ %>
+                                    <% if(result[i].hot==1){ %>
+                                        <div class="col-md-3 ">
+                                            <iframe width="560 " height="315 " src="<%= result[i].link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                            <div class="content">
+                                                <div class="icon-avatar">
+                                                    <img src="<%= result[i].img %>" alt="avatar">
+                                                </div>
+                                                <div class="text">
+                                                    <h2>
+                                                        <%= result[i].title %>
+                                                    </h2>
+                                                    <span class="verified"><%= result[i].channel %></span><br>
+                                                    <span><%= result[i].view %></span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <% } %>
-
+                                        <% } %>
+                                            <%}%>
                             </div>
                         </div>
 

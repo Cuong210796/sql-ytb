@@ -37,7 +37,7 @@ app.set("view engine", "ejs")
 
 
 app.get("/", function(req, res) {
-    var sql = "SELECT * FROM video  where hot = 0  ORDER BY id DESC";
+    var sql = "SELECT * FROM video   ORDER BY id DESC";
     con.query(sql, function(err, results) {
         if (err) throw err;
         res.render("index.ejs", { result: results });
@@ -45,23 +45,13 @@ app.get("/", function(req, res) {
         console.log(results);
     });
 
-    var sql = "SELECT * FROM video  where hot = 1  ORDER BY id DESC";
-    con.query(sql, function(err, results) {
-        if (err) throw err;
-        res.render("index.ejs", { result: results });
-        // var obj = JSON.parse(results);
-        console.log(results);
-    });
-
-    var sql = "SELECT * FROM video  where hot = 2  ORDER BY id DESC";
-    con.query(sql, function(err, results) {
-        if (err) throw err;
-        res.render("index.ejs", { result: results });
-        // var obj = JSON.parse(results);
-        console.log(results);
-    });
-
-
+    // var sql = "SELECT * FROM video  where hot = 1  ORDER BY id DESC";
+    // con.query(sql, function(err, results) {
+    //     if (err) throw err;
+    //     res.render("index.ejs", { result: results });
+    //     // var obj = JSON.parse(results);
+    //     console.log(results);
+    // });
 })
 
 app.post("/new-todo", function(req, res) {

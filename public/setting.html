@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting</title>
+    <link rel="icon" type="" href="https://upload.wikimedia.org/wikipedia/commons/9/9f/Youtube%28amin%29.png" sizes="32x32">
+</head>
+
+<body>
+    <form action="/new-todo" method="POST">
+        <input type="text" name="link">
+        <input type="text" name="img">
+        <input type="text" name="title">
+        <input type="text" name="channel">
+        <input type="text" name="view">
+        <button type=" submit ">Thêm Video</button>
+    </form>
+
+    <form action="/delete-todo" method="POST">
+        <input type="text" name="id">
+        <button type="submit">Xóa Video</button>
+    </form>
+
+    <form action="/fix-todo" method="POST">
+        <input type="number" name="id">
+        <input type="text" name="link">
+        <input type="text" name="newlink">
+        <input type="text" name="img">
+        <input type="text" name="newimg">
+        <input type="text" name="title">
+        <input type="text" name="newtitle">
+        <input type="text" name="channel">
+        <input type="text" name="newchannel">
+        <input type="text" name="view">
+        <input type="text" name="newview">
+        <button type="submit">Fix</button>
+    </form>
+</body>
+
+</html>
